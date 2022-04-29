@@ -26,7 +26,20 @@
   echo menu();
 ?>
 
-<form action="addBook.php" method="get">
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <div class="container-fluid text-center pb-4">
+    <button class="navbar-toggler col-12" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      Új könyv felvétele
+    </button>
+    <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
+
+    <form action="addBook.php" method="get">
   <div class="row">
   <div class="form-floating mb-3 col">
     <input type="text" class="form-control form-control-sm bg-secondary" id="bookId" name="konyvszam">
@@ -59,6 +72,12 @@
   <button type="submit" class="btn btn-secondary col-12">Feltöltés</button>
 </form>
 
+
+
+    
+    </div>
+  </div>
+</nav>
 
 
 
