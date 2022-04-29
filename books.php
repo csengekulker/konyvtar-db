@@ -1,6 +1,8 @@
 <?php
   include_once('menu.php');
   include_once('connect.php');
+  include_once('addBookForm.php');
+  include_once('bookTable.php');
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +22,9 @@
       <div class="display-2">Könyvek</div>
     </div>
 
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-
 <?php
   echo menu();
 ?>
-
-
-
-
-
-
 
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
   <div class="container-fluid text-center pb-4">
@@ -39,81 +33,22 @@
     </button>
     <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
 
-    <form action="addBook.php" method="get">
-  <div class="row">
-  <div class="form-floating mb-3 col">
-    <input type="text" class="form-control form-control-sm bg-secondary" id="bookId" name="konyvszam">
-    <label for="bookId">Könyvszám</label>
-  </div>
-  <div class="form-floating mb-3 col">
-    <input type="text" class="form-control form-control-sm bg-secondary" id="author" name="szerzo">
-    <label for="author">Szerző</label>
-  </div>
-  </div>
-  
-  
-  <div class="form-floating mb-3">
-    <input type="text" class="form-control form-control-sm bg-secondary" id="title" name="cim">
-    <label for="title">Cím</label>
-  </div>
-  
-  
-  <div class="row">
-    <div class="form-floating mb-3 col">
-      <input type="text" class="form-control form-control-sm bg-secondary" id="publisher" name="kiado">
-      <label for="publisher">Kiadó</label>
-    </div>
-    <div class="form-floating mb-3 col">
-      <input type="text" class="form-control form-control-sm bg-secondary" id="year" name="ev">
-      <label for="year">Év</label>
-    </div>
-  </div>
-  
-  <button type="submit" class="btn btn-secondary col-12">Feltöltés</button>
-</form>
+<?php
+  addBookForm();
 
-
-
-    
+?>    
     </div>
   </div>
 </nav>
 
 
+<?php
+  bookTable();
+?>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Könyvszám</th>
-      <th scope="col">Szerző</th>
-      <th scope="col">Cím</th>
-      <th scope="col">Törlés</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <?php
-
-      $books = getBookList();
-
-      while ($line=mysqli_fetch_assoc($books)) {
-        echo '<tr>';
-        echo '<td>'.$line['konyvszam'].'</td>';
-        echo '<td>'.$line['szerzo'].'</td>';
-        echo '<td>'.$line['cim'].'</td>';
-
-        echo '<td><a href="delete.php"><button class="btn btn-danger">X</button></a></td>';
-        echo '</tr>';
-      }
-    ?>
-    </tr>
-
-  </tbody>
-</table>
 
     <div class="row text-center">
       <div class="col-1"></div>
-    <!-- <img src="books.jpg" class="img-fluid col-10" alt="books"> --> 
        <div class="col-1"></div>
     </div>
   </div>
